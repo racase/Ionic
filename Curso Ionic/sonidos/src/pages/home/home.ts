@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Animal } from '../../interfaces/animal.interface';
 import { ANIMALES } from '../../data/data.animales';
 import { Refresher } from 'ionic-angular/components/refresher/refresher';
+import { reorderArray } from 'ionic-angular/util/util';
 
 @Component({
   selector: 'page-home',
@@ -13,6 +14,7 @@ export class HomePage {
   animales:Animal[] = [];
   audio = new Audio();
   audioTiempo: any;
+  ordenando: boolean = false;
 
   constructor(public navCtrl: NavController) {
     
@@ -72,6 +74,10 @@ export class HomePage {
       refresher.complete();
 
     }, 1500);
+  }
+
+  reordenarAnimales(indices: any){
+    this.animales = reorderArray(this.animales, indices);
   }
 
 }
