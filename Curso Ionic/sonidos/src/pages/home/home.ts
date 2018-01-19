@@ -53,11 +53,11 @@ export class HomePage {
       }
 
     }
-
-
+    
   }
-  
 
-
+  borrar(i: number){
+    this.animales.splice(i,1);
+  }
 
 }
