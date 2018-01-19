@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Animal } from '../../interfaces/animal.interface';
 import { ANIMALES } from '../../data/data.animales';
+import { Refresher } from 'ionic-angular/components/refresher/refresher';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
     
-    this.animales = ANIMALES.splice(0);  //Clonar
+    this.animales = ANIMALES.slice(0);  //Clonar
 
   }
 
@@ -58,6 +59,19 @@ export class HomePage {
 
   borrar(i: number){
     this.animales.splice(i,1);
+  }
+
+  refrescar( refresher: Refresher){
+
+    console.log('inicio refresh');
+  
+    setTimeout(() => {
+      console.log('termino refresh');
+      this.animales = ANIMALES.slice(0);  //Clonar
+
+      refresher.complete();
+
+    }, 1500);
   }
 
 }
