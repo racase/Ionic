@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PrincipalPage {
 
   pagina2:any = Pagina2Page;
-  
+
   constructor(public navCtrl: NavController) {
   }
 
